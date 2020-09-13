@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { ThemeProvider } from 'theme-ui';
 import theme from '@rebass/preset';
 import { Flex, Box, Text } from 'rebass';
@@ -18,7 +17,7 @@ function App(props) {
               Test demos
             </Text>
             <Box mx='auto' />
-            <Link to='/dragon-ball-manager'>Dragon Ball Manager</Link>
+            <Link data-testid="link-dragon-ball-manager" to='/dragon-ball-manager'>Dragon Ball Manager</Link>
             <Link to='/form-cep'>Address Form</Link>
           </Flex>
           <Switch>

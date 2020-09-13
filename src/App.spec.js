@@ -1,14 +1,16 @@
 import React from 'react'
-import { render, fireEvent, getByText } from '@testing-library/react'
-import { Router } from 'react-router-dom'
+import '@testing-library/jest-dom/extend-expect'
+import { render, fireEvent } from '@testing-library/react'
 import App from './App'
+import { act } from 'react-dom/test-utils'
 
-it('Should render correct router', () => {
-  const history = createMemoryHistory()
-  const { container, getByText, debug } = render(
-    <Router history={history}>
-      <App />
-    </Router>
-  )
-  debug()
+describe('App', () => {
+  it('link', () => {
+    const {
+      getByTestId
+    } = render(<App />)
+    const linkDragonBallManager = getByTestId('link-dragon-ball-manager');
+  
+    expect(linkDragonBallManager).toBeTruthy();
+  })
 })

@@ -19,6 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:success": "env REACT_APP_PROFILE=SUCCESS react-scripts start",
     "build": "react-scripts build",
     "test": "jest --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",

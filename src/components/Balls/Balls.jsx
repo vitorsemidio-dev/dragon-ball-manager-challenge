@@ -28,6 +28,7 @@ const Card = styled(BCard)`
 `;
 
 const Balls = ({ balls, profile }) => {
+  const [allBalls, setAllBalls] = useState(balls);
   const [list, setList] = useState(balls);
   const [modal, setModal] = useState(false);
   const [currentBall, setBall] = useState(null);
@@ -40,24 +41,24 @@ const Balls = ({ balls, profile }) => {
   }
 
   const filterByMe = () => {
-    return balls.filter((ball) => ball.owner === profile.id);
+    return allBalls.filter((ball) => ball.owner === profile.id);
   };
 
   const filterNotMe = () => {
-    return balls.filter((ball) => ball.owner !== profile.id);
+    return allBalls.filter((ball) => ball.owner !== profile.id);
   };
 
   const filter = (value) => {
     const cases = {
       me: () => setList(filterByMe()),
-      all: () => setList(balls),
+      all: () => setList(allBalls),
       notme: () => setList(filterNotMe()),
     };
     return cases[value]();
   };
 
   const updateList = (id) => {
-    const newList = balls.map((ball) => {
+    const newList = allBalls.map((ball) => {
       if(ball.id === id) return {
         ...ball,
         owner: profile.id
@@ -67,6 +68,7 @@ const Balls = ({ balls, profile }) => {
     const newProfile = profile.balls.push(id)
 
     setList(newList)
+    setAllBalls(newList);
     setModal(false)
   }
 
@@ -124,7 +126,7 @@ const Balls = ({ balls, profile }) => {
               type='number'
               name='ballcode'
               id='code'
-              placeholder='Ex: 23412'
+              placeholder='Ex: 123'
             />
           </FormGroup>
         </ModalBody>
