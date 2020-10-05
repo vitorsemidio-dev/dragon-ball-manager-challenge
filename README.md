@@ -1,4 +1,12 @@
+<!-- @format -->
+
 # Dragon ball manager challenge
+
+<h1>
+  <img src=".github/Invocacao-shenlong.png">
+</h1>
+
+## Sobre a aplicação
 
 Esta é uma aplicação para você poder invocar Shenlong, porém ela tem alguns probleminhas, e além desses probleminhas pra serem resolvidos vocês precisam adicionar testes.
 
@@ -6,27 +14,49 @@ Ja temos o [Jest](https://jestjs.io/), [React Testing Library](https://testing-l
 
 Aqui vão alguns casos para testar porém você pode ir além:
 
-* Testar o filtro no select para exibir todas as esferas, as esferas que eu tenho e as que eu não tenho
-* Se eu tiver todas as esferas tenho que conseguir invocar o shenlong
-* ... O que mais você desejar! Solte a imaginação!
+- Testar o filtro no select para exibir todas as esferas, as esferas que eu tenho e as que eu não tenho
+- Se eu tiver todas as esferas tenho que conseguir invocar o shenlong
+- ... O que mais você desejar! Solte a imaginação!
 
 Para fazer este repositório funcionar você deve clonar este repositório
 
 Instalar as dependências e rodar:
 
 ```
-  yarn 
+  yarn
   yarn start
 ```
 
 Para rodar os testes com testing library
+
 ```
   yarn test
 ```
 
 Para rodar os testes com Cypress
+
 ```
   yarn cy:run
 ```
 
 **HAVE FUN AND CODE!**
+
+## Testes Cypress
+
+### Sem invocar Shenlong
+
+<p align="center">
+  <img src=".github/cy01.png">
+</p>
+
+### Invocando Shenlong
+
+<p align="center">
+  <img src=".github/cy02.png">
+</p>
+
+## Testes Jest
+
+<p align="center">
+  <img src=".github/jest01.png">
+</p>
