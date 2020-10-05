@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState } from 'react';
 
 import {
@@ -36,9 +38,9 @@ const Balls = ({ balls, profile }) => {
   const toggle = () => setModal(!modal);
 
   const validateBall = (ball) => {
-    setBall(ball)
-    setModal(true)
-  }
+    setBall(ball);
+    setModal(true);
+  };
 
   const filterByMe = () => {
     return allBalls.filter((ball) => ball.owner === profile.id);
@@ -59,18 +61,19 @@ const Balls = ({ balls, profile }) => {
 
   const updateList = (id) => {
     const newList = allBalls.map((ball) => {
-      if(ball.id === id) return {
-        ...ball,
-        owner: profile.id
-      }
-      return ball
-    })
-    const newProfile = profile.balls.push(id)
+      if (ball.id === id)
+        return {
+          ...ball,
+          owner: profile.id,
+        };
+      return ball;
+    });
+    const newProfile = profile.balls.push(id);
 
-    setList(newList)
+    setList(newList);
     setAllBalls(newList);
-    setModal(false)
-  }
+    setModal(false);
+  };
 
   return (
     <>
@@ -82,9 +85,8 @@ const Balls = ({ balls, profile }) => {
             type='select'
             name='select'
             id='filter'
-            data-testid="filter"
-            onChange={({ target: { value } }) => filter(value)}
-          >
+            data-testid='filter'
+            onChange={({ target: { value } }) => filter(value)}>
             <option value='all'>Todas as esferas</option>
             <option value='me'>Minhas esferas</option>
             <option value='notme'>Não tenho</option>
@@ -102,7 +104,11 @@ const Balls = ({ balls, profile }) => {
                   {ball.owner !== profile.id ? (
                     <>
                       <Badge color='danger'>Não encontrada</Badge>
-                      <Button size='sm' color='warning' onClick={() => validateBall(ball)}>
+                      <Button
+                        data-testid='btn-find-ball'
+                        size='sm'
+                        color='warning'
+                        onClick={() => validateBall(ball)}>
                         encontrei
                       </Button>
                     </>
@@ -121,17 +127,23 @@ const Balls = ({ balls, profile }) => {
       <Modal isOpen={modal} toggle={toggle}>
         <ModalBody>
           <FormGroup>
-            <Label for='code'>Insira o código da esfera de {currentBall?.name}:</Label>
+            <Label for='code'>
+              Insira o código da esfera de {currentBall?.name}:
+            </Label>
             <Input
               type='number'
               name='ballcode'
               id='code'
               placeholder='Ex: 123'
+              data-testid='input-ball-code'
             />
           </FormGroup>
         </ModalBody>
         <ModalFooter>
-        <Button color='success' onClick={() => updateList(currentBall?.id)}>
+          <Button
+            data-testid='btn-validate'
+            color='success'
+            onClick={() => updateList(currentBall?.id)}>
             Validar
           </Button>
           <Button color='secondary' onClick={toggle}>
